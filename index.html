@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Buscar Turma</title>
+        <link rel="stylesheet" href="styles.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        />
+    </head>
+    <body>
+        <div class="search-container">
+            <div class="search-center">
+                <h1 class="search-title">Buscar Turma</h1>
+                <p class="search-subtitle">
+                    Digite o nome da turma para encontrar
+                </p>
+
+                <div class="search-box-center">
+                    <div class="search-input-wrapper">
+                        <i class="fas fa-search search-icon"></i>
+                        <input
+                            type="text"
+                            id="classSearch"
+                            placeholder="Digite o nome da turma..."
+                            autocomplete="off"
+                        />
+                        <div
+                            id="autocompleteResults"
+                            class="autocomplete-results"
+                        ></div>
+                    </div>
+                </div>
+
+                <div class="search-info">
+                    <i class="fas fa-info-circle"></i>
+                    <span
+                        >As turmas serão listadas automaticamente conforme você
+                        digita</span
+                    >
+                </div>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
