@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plano de Aulas - Programação de Aplicativos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="../styles.css" />
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Programação de Aplicativos</h1>
+            <p class="header-subtitle">
+                Plano de Aulas - Turma T DESS 2025/1 N2
+            </p>
+            <div class="course-info">
+                <div class="info-item">
+                    <i class="fas fa-chalkboard-teacher"></i> Professor:
+                    Lucas Eduardo Batista Ferreira
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i> Email:
+                    l.ferreira@edu.sc.senai.br
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-clock"></i> Carga Horária: 100 horas
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="disclaimer">
+            <i class="fas fa-exclamation-circle"></i>
+            <p>
+                Este plano de aulas está sujeito a alterações sem aviso
+                prévio.
+            </p>
+        </div>
+
+        <div class="filters">
+            <span class="filter-label">Filtrar por bloco:</span>
+            <div class="filter-buttons" id="filterButtons">
+                <!-- Os botões serão gerados dinamicamente via JavaScript -->
+                <button class="filter-btn active" data-filter="all">Todos</button>
+            </div>
+
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Buscar aula..." id="searchInput" />
+            </div>
+        </div>
+
+        <div class="lessons-container" id="lessonsContainer">
+            <!-- Aulas serão inseridas via JavaScript -->
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="lessonModal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <h2 class="modal-title" id="modalLessonTitle">
+                Título da Aula
+            </h2>
+
+            <div class="modal-info">
+                <span class="modal-info-item" id="modalBlockInfo"><i class="fas fa-cube"></i> Bloco:
+                </span>
+                <span class="modal-info-item" id="modalDurationInfo"><i class="fas fa-clock"></i> Duração: 4h</span>
+            </div>
+
+            <p class="modal-description" id="modalLessonDescription">
+                Descrição da aula...
+            </p>
+
+            <div class="modal-objectives">
+                <h3>Conhecimentos abordados:</h3>
+                <ul class="objective-list" id="modalObjectivesList">
+                    <!-- Objetivos serão inseridos via JavaScript -->
+                </ul>
+            </div>
+
+            <div class="modal-section">
+                <h3>
+                    <i class="fas fa-laptop-house"></i> Ambiente pedagógico
+                </h3>
+                <p id="modalAmbiente">Laboratório de Informática</p>
+            </div>
+
+            <div class="modal-section">
+                <h3><i class="fas fa-tools"></i> Ferramentas utilizadas</h3>
+                <p id="modalFerramentas">Python IDLE, Google Colab</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>
+                    <i class="fas fa-clipboard-check"></i> Critérios de
+                    avaliação
+                </h3>
+                <p id="modalAvaliacao">
+                    Exercícios práticos, participação em sala
+                </p>
+            </div>
+
+            <div class="modal-actions">
+                <button class="copy-btn" id="copyModalBtn">
+                    <i class="fas fa-copy"></i> Copiar conteúdo
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <p>
+                Feito com <span class="footer-heart">❤️</span> pelo
+                professor Lucas
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        const lessonsData = [
+    {
+        id: "1-1",
+        title: "Introdução a Banco de Dados",
+        block: 1,
+        blockName: "Fundamentos e Modelagem Conceitual",
+        description: "Aula introdutória sobre conceitos fundamentais de bancos de dados, sua importância e aplicações no mundo real.",
+        objectives: [
+            "Conceitos básicos de BD",
+            "História e evolução dos SGBDs",
+            "Vantagens do uso de bancos de dados",
+            "Aplicações práticas"
+        ],
+        ambiente: "Sala de Aula / Laboratório",
+        ferramentas: "Slides, Quadro branco, Exemplos práticos",
+        avaliacao: "Participação em sala, Questionário conceitual",
+        color: "#4A90E2",
+        status: "concluida"
+    },
+    {
+        id: "1-2",
+        title: "Conceitos de modelagem",
+        block: 1,
+        blockName: "Fundamentos e Modelagem Conceitual",
+        description: "Introdução aos conceitos de modelagem de dados e representação de entidades do mundo real.",
+        objectives: [
+            "Entidades e atributos",
+            "Relacionamentos",
+            "Cardinalidade",
+            "Modelo Entidade-Relacionamento"
+        ],
+        ambiente: "Sala de Aula / Laboratório",
+        ferramentas: "Lousa digital, Ferramentas de modelagem, Diagramas ER",
+        avaliacao: "Exercícios de identificação de entidades, Diagramas ER simples",
+        color: "#4A90E2",
+        status: "concluida"
+    },
+    {
+        id: "1-3",
+        title: "Tipos e Chaves",
+        block: 1,
+        blockName: "Fundamentos e Modelagem Conceitual",
+        description: "Estudo dos tipos de dados e diferentes tipos de chaves utilizadas em bancos de dados relacionais.",
+        objectives: [
+            "Chave primária",
+            "Chave estrangeira",
+            "Chave candidata",
+            "Tipos de dados básicos"
+        ],
+        ambiente: "Sala de Aula / Laboratório",
+        ferramentas: "Exemplos práticos, Diagramas, Exercícios resolvidos",
+        avaliacao: "Identificação de chaves em modelos, Exercícios de aplicação",
+        color: "#4A90E2",
+        status: "concluida"
+    },
+    {
+        id: "1-4",
+        title: "Tabela associativa e exercícios de modelagem",
+        block: 1,
+        blockName: "Fundamentos e Modelagem Conceitual",
+        description: "Estudo de relacionamentos muitos-para-muitos e implementação através de tabelas associativas.",
+        objectives: [
+            "Relacionamentos N:N",
+            "Tabelas associativas",
+            "Resolução de cardinalidade",
+            "Exercícios práticos"
+        ],
+        ambiente: "Laboratório de Informática",
+        ferramentas: "Ferramentas de modelagem, Casos de estudo, Templates",
+        avaliacao: "Criação de tabelas associativas, Exercícios de modelagem",
+        color: "#4A90E2",
+        status: "concluida"
+    },
+    {
+        id: "1-5",
+        title: "Exercícios de modelagem",
+        block: 1,
+        blockName: "Fundamentos e Modelagem Conceitual",
+        description: "Aula prática focada na resolução de exercícios de modelagem conceitual com casos reais.",
+        objectives: [
+            "Modelagem de casos complexos",
+            "Validação de modelos",
+            "Otimização de estruturas",
+            "Boas práticas de modelagem"
+        ],
+        ambiente: "Laboratório de Informática",
+        ferramentas: "Casos de negócio, Ferramentas de diagramação, Checklist validação",
+        avaliacao: "Exercícios práticos, Correção em grupo, Autoavaliação",
+        color: "#4A90E2",
+        status: "concluida"
+    },
+    {
+        id: "1-6",
+        title: "Trabalho de Modelagem",
+        block: 1,
+        blockName: "Fundamentos e Modelagem Conceitual",
+        description: "Desenvolvimento de trabalho prático de modelagem aplicando todos os conceitos aprendidos.",
+        objectives: [
+            "Aplicação integral dos conceitos",
+            "Desenvolvimento de modelo completo",
+            "Documentação do modelo",
+            "Apresentação de resultados"
+        ],
+        ambiente: "Laboratório de Informática",
+        ferramentas: "Ferramentas de modelagem, Templates documentação, Exemplos",
+        avaliacao: "Trabalho prático, Apresentação, Qualidade da modelagem",
+        color: "#4A90E2",
+        status: "concluida"
+    },
+    {
+        id: "2-1",
+        title: "Aprendendo a utilizar um SGBD",
+        block: 2,
+        blockName: "Criação de Tabelas no SGBD",
+        description: "Introdução prática ao uso de Sistemas Gerenciadores de Banco de Dados e suas interfaces.",
+        objectives: [
+            "Instalação do SGBD",
+            "Interface gráfica",
+            "Conexões e usuários",
+            "Primeiros passos práticos"
+        ],
+        ambiente: "Laboratório de Informática",
+        ferramentas: "MySQL/PostgreSQL, Workbench/pgAdmin, Documentação",
+        avaliacao: "Configuração do ambiente, Primeiras conexões",
+        color: "#50E3C2",
+        status: "concluida"
+    },
+    {
+        id: "2-2",
+        title: "Criação de tabelas e registros em SGBD",
+        block: 2,
+        blockName: "Criação de Tabelas no SGBD",
+        description: "Criação prática de tabelas e inserção de registros através da interface gráfica do SGBD.",
+        objectives: [
+            "Criação de tabelas via GUI",
+            "Inserção de dados",
+            "Visualização de dados",
+            "Edição de registros"
+        ],
+        ambiente: "Laboratório de Informática",
+        ferramentas: "SGBD com interface gráfica, Datasets de exemplo",
+        avaliacao: "Criação de tabelas, Inserção de dados, Interface dominada",
+        color: "#50E3C2",
+        status: "concluida"
+    },
+    {
+        id: "2-3",
+        title: "Introdução a DDL",
+        block: 2,
+        blockName: "Criação de Tabelas no SGBD",
+        description: "Primeiros contatos com a Data Definition Language (DDL) e comandos básicos de criação de estruturas.",
+        objectives: [
+            "Comando CREATE",
+            "Comando ALTER",
+            "Comando DROP",
+            "Definição de constraints"
+        ],
+        ambiente: "Laboratório de Informática",
+        ferramentas: "Editor SQL, SGBD, Exercícios guiados",
+        avaliacao: "Exercícios DDL básicos, Compreensão dos comandos",
+        color: "#50E3C2",
+        status: "concluida"
+    },
+    {
+        id: "2-4",
+        title: "Exercícios DDL",
+        block: 2,
+        blockName: "Criação de Tabelas no SGBD",
+        description: "Aula prática focada em exercícios de DDL para fixação dos comandos de definição de dados.",
+        objectives: [
+            "Prática intensiva de DDL",
+            "Criação de esquemas complexos",
+            "Constraints avançadas",
+            "Boas práticas de DDL"
+        ],
+        ambiente: "Laboratório de Informática",
+        ferramentas: "Editor SQL, Casos práticos, Correção automática",
+        avaliacao: "Lista de exercícios, Qualidade do código DDL",
+        color: "#50E3C2",
+        status: "concluida"
+    },
+    {
+        id: "2-5",
+        title: "Aplicação da Prova Objetiva",
+        block: 2,
+        blockName: "Criação de Tabelas no SGBD",
+        description: "Avaliação teórica dos conceitos de modelagem e DDL aprendidos até o momento.",
+        objectives: [
+            "Avaliação de conhecimentos",
+            "Verificação de aprendizagem",
+            "Conceitos teóricos",
+            "Aplicação prática teórica"
+        ],
+        ambiente: "Sala de Aula",
+        ferramentas: "Prova impressa/digital, Calculadora (se necessário)",
+        avaliacao: "Prova objetiva, Nota formal",
+        color: "#50E3C2",
+        status: "concluida"
+    },
+    {
+        id: "2-6",
+        title: "Criando tabelas com SQL na prática",
+        block: 2,
+        blockName: "Criação de Tabelas no SGBD",
+        description: "Aula prática avançada de criação de tabelas utilizando comandos SQL puros.",
+        objectives: [
+            "CREATE TABLE avançado",
+            "Definição de chaves",
+            "Constraints complexas",
+            "Indexação básica"
+        ],
+        ambiente: "Laboratório de Informática",
+        ferramentas: "SGBD, Editor SQL, Scripts de exemplo",
+        avaliacao: "Scripts de criação, Estruturas complexas criadas",
+        color: "#50E3C2",
+        status: "concluida"
+    },
+    {
+        id: "3-1",
+        title: "Introdução a DML - Primeiros comandos SQL",
+        block: 3,
+        blockName: "Manipulação de Dados com SQL",
+        description: "Introdução à Data Manipulation Language (DML) com comandos básicos de manipulação de dados.",
+        objectives: [
+            "Comando INSERT",
+            "Comando UPDATE",
+            "Comando DELETE",
+            "Comando SELECT básico"
+        ],
+        ambiente: "Laboratório de Informática",
+        ferramentas: "SGBD, Editor SQL, Datasets de prática",
+        avaliacao: "Exercícios DML básicos, Compreensão dos comandos",
+        color: "#9013FE",
+        status: "concluida"
+    },
+    {
+        id: "3-2",
+        title: "SQL Intermediário",
+        block: 3,
+        blockName: "Manipulação de Dados com SQL",
+        description: "Avançando nos comandos SQL com cláusulas WHERE, ORDER BY, GROUP BY e funções agregadas.",
+        objectives: [
+            "Cláusula WHERE avançada",
+            "ORDER BY e GROUP BY",
+            "Funções agregadas",
+            "Junções básicas"
+        ],
+        ambiente: "Laboratório de Informática",
+        ferramentas: "SGBD, Editor SQL, Exercícios progressivos",
+        avaliacao: "Consultas intermediárias, Resolução de problemas",
+        color: "#9013FE",
+        status: "concluida"
+    },
+    {
+        id: "3-3",
+        title: "Lista de exercícios SELECT",
+        block: 3,
+        blockName: "Manipulação de Dados com SQL",
+        description: "Aula prática focada em exercícios de consulta SELECT para desenvolvimento de habilidades em SQL.",
+        objectives: [
+            "Consultas complexas SELECT",
+            "Múltiplas tabelas",
+            "Funções diversas",
+            "Otimização de consultas"
+        ],
+        ambiente: "Laboratório de Informática",
+        ferramentas: "SGBD, Editor SQL, Lista de exercícios",
+        avaliacao: "Lista de exercícios, Complexidade das soluções",
+        color: "#9013FE",
+        status: "concluida"
+    },
+    {
+        id: "3-4",
+        title: "Criação de Banco de Dados do Zero apenas com SQL",
+        block: 3,
+        blockName: "Manipulação de Dados com SQL",
+        description: "Desafio prático de criar um banco de dados completo utilizando apenas comandos SQL.",
+        objectives: [
+            "Criação completa via SQL",
+            "DDL e DML integrados",
+            "Scripts executáveis",
+            "Documentação do processo"
+        ],
+        ambiente: "Laboratório de Informática",
+        ferramentas: "SGBD, Editor SQL, Templates de scripts",
+        avaliacao: "Banco de dados funcional, Qualidade dos scripts",
+        color: "#9013FE",
+        status: "concluida"
+    },
+    {
+        id: "3-5",
+        title: "Finalização exercícios de criação de BD apenas com SQL",
+        block: 3,
+        blockName: "Manipulação de Dados com SQL",
+        description: "Conclusão e refinamento do projeto de criação de banco de dados via SQL com validação final.",
+        objectives: [
+            "Refinamento do BD criado",
+            "Validação da estrutura",
+            "Testes de integridade",
+            "Documentação final"
+        ],
+        ambiente: "Laboratório de Informática",
+        ferramentas: "SGBD, Ferramentas de teste, Checklist validação",
+        avaliacao: "Projeto finalizado, Qualidade do produto final",
+        color: "#9013FE",
+        status: "concluida"
+    },
+    {
+        id: "3-6",
+        title: "Introdução a subqueries",
+        block: 3,
+        blockName: "Manipulação de Dados com SQL",
+        description: "Introdução ao conceito de subqueries e consultas aninhadas para resolução de problemas complexos.",
+        objectives: [
+            "Subqueries em WHERE",
+            "Subqueries em SELECT",
+            "Subqueries em FROM",
+            "Performance de subqueries"
+        ],
+        ambiente: "Laboratório de Informática",
+        ferramentas: "SGBD, Editor SQL, Exemplos complexos",
+        avaliacao: "Exercícios de subqueries, Resolução de problemas complexos",
+        color: "#9013FE",
+        status: "concluida"
+    },
+    {
+        id: "3-7",
+        title: "Exercícios Subqueries",
+        block: 3,
+        blockName: "Manipulação de Dados com SQL",
+        description: "Aula prática intensiva de subqueries para domínio completo desta técnica avançada de SQL.",
+        objectives: [
+            "Subqueries correlacionadas",
+            "EXISTS e NOT EXISTS",
+            "Subqueries múltiplas",
+            "Otimização de performance"
+        ],
+        ambiente: "Laboratório de Informática",
+        ferramentas: "SGBD, Editor SQL, Casos avançados",
+        avaliacao: "Lista avançada de exercícios, Eficiência das soluções",
+        color: "#9013FE",
+        status: "concluida"
+    },
+    {
+        id: "3-8",
+        title: "Junções avançadas e otimização",
+        block: 3,
+        blockName: "Manipulação de Dados com SQL",
+        description: "Estudo aprofundado de diferentes tipos de JOIN e técnicas de otimização de consultas.",
+        objectives: [
+            "INNER JOIN, LEFT/RIGHT JOIN",
+            "FULL OUTER JOIN",
+            "CROSS JOIN",
+            "Otimização de consultas"
+        ],
+        ambiente: "Laboratório de Informática",
+        ferramentas: "SGBD, EXPLAIN PLAN, Ferramentas de análise",
+        avaliacao: "Consultas otimizadas, Análise de performance",
+        color: "#9013FE",
+        status: "pendente"
+    },
+    {
+        id: "3-9",
+        title: "Funções e procedimentos armazenados",
+        block: 3,
+        blockName: "Manipulação de Dados com SQL",
+        description: "Introdução à programação no banco de dados com funções e procedimentos armazenados.",
+        objectives: [
+            "CREATE FUNCTION",
+            "CREATE PROCEDURE",
+            "Parâmetros e retornos",
+            "Aplicações práticas"
+        ],
+        ambiente: "Laboratório de Informática",
+        ferramentas: "SGBD, Editor SQL, Exemplos de funções",
+        avaliacao: "Criação de funções, Aplicação em casos reais",
+        color: "#9013FE",
+        status: "pendente"
+    },
+    {
+        id: "3-10",
+        title: "Triggers e transações",
+        block: 3,
+        blockName: "Manipulação de Dados com SQL",
+        description: "Estudo de triggers para automatização e controle de transações para garantir integridade dos dados.",
+        objectives: [
+            "CREATE TRIGGER",
+            "BEFORE/AFTER triggers",
+            "Controle de transações",
+            "COMMIT e ROLLBACK"
+        ],
+        ambiente: "Laboratório de Informática",
+        ferramentas: "SGBD, Casos de uso, Simulações de erro",
+        avaliacao: "Implementação de triggers, Controle transacional",
+        color: "#9013FE",
+        status: "pendente"
+    },
+    {
+        id: "4-1",
+        title: "Planejamento de projeto de BD",
+        block: 4,
+        blockName: "Desenvolvimento de Projetos",
+        description: "Fase de planejamento para desenvolvimento de projeto prático de banco de dados.",
+        objectives: [
+            "Definição de escopo",
+            "Levantamento de requisitos",
+            "Modelagem conceitual",
+            "Cronograma de desenvolvimento"
+        ],
+        ambiente: "Sala de Aula / Laboratório",
+        ferramentas: "Ferramentas de modelagem, Templates de projeto, Documentação",
+        avaliacao: "Documento de requisitos, Modelo conceitual",
+        color: "#F5A623",
+        status: "pendente"
+    },
+    {
+        id: "4-2",
+        title: "Implementação do projeto",
+        block: 4,
+        blockName: "Desenvolvimento de Projetos",
+        description: "Fase de implementação do projeto com criação completa do banco de dados.",
+        objectives: [
+            "DDL completo",
+            "Inserção de dados iniciais",
+            "Criação de constraints",
+            "Documentação técnica"
+        ],
+        ambiente: "Laboratório de Informática",
+        ferramentas: "SGBD, Editor SQL, Ferramentas de versionamento",
+        avaliacao: "Scripts de implementação, Estrutura do BD",
+        color: "#F5A623",
+        status: "pendente"
+    },
+    {
+        id: "4-3",
+        title: "Consultas e relatórios do projeto",
+        block: 4,
+        blockName: "Desenvolvimento de Projetos",
+        description: "Desenvolvimento de consultas e relatórios para extração de informações do projeto.",
+        objectives: [
+            "Consultas complexas",
+            "Relatórios analíticos",
+            "Performance das queries",
+            "Documentação das consultas"
+        ],
+        ambiente: "Laboratório de Informática",
+        ferramentas: "SGBD, Ferramentas de relatório, Análise de performance",
+        avaliacao: "Conjunto de consultas, Relatórios gerados",
+        color: "#F5A623",
+        status: "pendente"
+    },
+    {
+        id: "4-4",
+        title: "Apresentação final dos projetos",
+        block: 4,
+        blockName: "Desenvolvimento de Projetos",
+        description: "Apresentação e demonstração dos projetos desenvolvidos pelos alunos.",
+        objectives: [
+            "Apresentação do projeto",
+            "Demonstração prática",
+            "Defesa das escolhas técnicas",
+            "Feedback dos colegas"
+        ],
+        ambiente: "Sala de Aula",
+        ferramentas: "Projetor, Demonstração ao vivo, Slides",
+        avaliacao: "Apresentação oral, Qualidade do projeto, Documentação",
+        color: "#F5A623",
+        status: "pendente"
+    },
+    {
+        id: "5-1",
+        title: "Introdução a NoSQL",
+        block: 5,
+        blockName: "Tendências e Banco de Dados Não-Relacional",
+        description: "Introdução aos bancos de dados não-relacionais e suas diferenças em relação aos bancos relacionais.",
+        objectives: [
+            "Conceitos NoSQL",
+            "Tipos de bancos NoSQL",
+            "Vantagens e desvantagens",
+            "Casos de uso apropriados"
+        ],
+        ambiente: "Sala de Aula / Laboratório",
+        ferramentas: "Slides, Exemplos práticos, Comparativos",
+        avaliacao: "Questionário conceitual, Análise de casos",
+        color: "#BD10E0",
+        status: "pendente"
+    },
+    {
+        id: "5-2",
+        title: "Bancos de dados document-based",
+        block: 5,
+        blockName: "Tendências e Banco de Dados Não-Relacional",
+        description: "Estudo específico de bancos de dados baseados em documentos como MongoDB.",
+        objectives: [
+            "Conceito de documentos",
+            "Coleções e documentos",
+            "Consultas em MongoDB",
+            "Comparação com SQL"
+        ],
+        ambiente: "Laboratório de Informática",
+        ferramentas: "MongoDB, MongoDB Compass, Exemplos JSON",
+        avaliacao: "Exercícios com MongoDB, Modelagem documental",
+        color: "#BD10E0",
+        status: "pendente"
+    },
+    {
+        id: "5-3",
+        title: "Bancos de dados chave-valor",
+        block: 5,
+        blockName: "Tendências e Banco de Dados Não-Relacional",
+        description: "Estudo de bancos de dados do tipo chave-valor como Redis e suas aplicações.",
+        objectives: [
+            "Modelo chave-valor",
+            "Comandos básicos Redis",
+            "Casos de uso",
+            "Performance e limitações"
+        ],
+        ambiente: "Laboratório de Informática",
+        ferramentas: "Redis, CLI Redis, Exemplos práticos",
+        avaliacao: "Exercícios com Redis, Análise de performance",
+        color: "#BD10E0",
+        status: "pendente"
+    },
+    {
+        id: "5-4",
+        title: "Tendências em bancos de dados",
+        block: 5,
+        blockName: "Tendências e Banco de Dados Não-Relacional",
+        description: "Visão geral das tendências atuais e futuras no mundo de bancos de dados.",
+        objectives: [
+            "Bancos de dados em nuvem",
+            "Big Data",
+            "Data Lakes",
+            "Futuro dos SGBDs"
+        ],
+        ambiente: "Sala de Aula",
+        ferramentas: "Artigos, Cases, Vídeos explicativos",
+        avaliacao: "Seminário, Pesquisa sobre tendências",
+        color: "#BD10E0",
+        status: "pendente"
+    }
+];
+        // Função para renderizar as aulas
+        function renderLessons(lessons) {
+            const container = document.getElementById("lessonsContainer");
+            container.innerHTML = "";
+
+            lessons.forEach((lesson) => {
+                const lessonCard = document.createElement("div");
+                lessonCard.className = "lesson-card";
+                lessonCard.setAttribute("data-block", lesson.block);
+
+                lessonCard.innerHTML = `
+                    <div class="lesson-header" style="background-color: ${lesson.color
+                    }">
+                        <span>Bloco ${lesson.block}</span>
+                        <span class="lesson-badge">Aula ${lesson.id.split("-")[1]
+                    }</span>
+                    </div>
+                    <div class="lesson-content">
+                        <h3 class="lesson-title">${lesson.title}</h3>
+                        <div class="lesson-info">
+                            <i class="fas fa-cube"></i>
+                            <span>${lesson.blockName}</span>
+                        </div>
+                    </div>
+                    <div class="lesson-footer">
+                        <span class="lesson-duration">
+                            <i class="fas fa-clock"></i> 4h
+                        </span>
+                        <div class="lesson-actions">
+                            <button class="action-btn" title="Ver detalhes">
+                                <i class="fas fa-info-circle"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+
+                lessonCard.addEventListener("click", () =>
+                    openModal(lesson)
+                );
+                container.appendChild(lessonCard);
+            });
+        }
+
+        // Função para abrir o modal com os detalhes da aula
+        function openModal(lesson) {
+            const modal = document.getElementById("lessonModal");
+            const modalTitle = document.getElementById("modalLessonTitle");
+            const modalBlockInfo =
+                document.getElementById("modalBlockInfo");
+            const modalDescription = document.getElementById(
+                "modalLessonDescription"
+            );
+            const objectivesList = document.getElementById(
+                "modalObjectivesList"
+            );
+            const modalAmbiente = document.getElementById("modalAmbiente");
+            const modalFerramentas =
+                document.getElementById("modalFerramentas");
+            const modalAvaliacao =
+                document.getElementById("modalAvaliacao");
+
+            modalTitle.textContent = lesson.title;
+            modalBlockInfo.innerHTML = `<i class="fas fa-cube"></i> Bloco: ${lesson.blockName}`;
+            modalDescription.textContent = lesson.description;
+
+            // Limpar e preencher a lista de objetivos
+            objectivesList.innerHTML = "";
+            lesson.objectives.forEach((objective) => {
+                const li = document.createElement("li");
+                li.textContent = objective;
+                objectivesList.appendChild(li);
+            });
+
+            // Preencher os novos campos
+            modalAmbiente.textContent = lesson.ambiente;
+            modalFerramentas.textContent = lesson.ferramentas;
+            modalAvaliacao.textContent = lesson.avaliacao;
+
+            setupCopyButton(lesson);
+
+            modal.style.display = "flex";
+        }
+
+        function setupCopyButton(lesson) {
+            const copyBtn = document.getElementById("copyModalBtn");
+
+            copyBtn.onclick = function () {
+                const textToCopy = `${lesson.description}
+
+CONHECIMENTOS ABORDADOS:
+${lesson.objectives.map((obj) => `• ${obj}`).join("\n")}
+
+AMBIENTE PEDAGÓGICO: ${lesson.ambiente}
+FERRAMENTAS UTILIZADAS: ${lesson.ferramentas}
+CRITÉRIOS DE AVALIAÇÃO: ${lesson.avaliacao}
+        `.trim();
+
+                // Copiar para a área de transferência
+                navigator.clipboard
+                    .writeText(textToCopy)
+                    .then(() => {
+                        // Feedback visual
+                        const originalText = copyBtn.innerHTML;
+                        copyBtn.innerHTML =
+                            '<i class="fas fa-check"></i> Copiado!';
+                        copyBtn.classList.add("copied");
+
+                        setTimeout(() => {
+                            copyBtn.innerHTML = originalText;
+                            copyBtn.classList.remove("copied");
+                        }, 2000);
+                    })
+                    .catch((err) => {
+                        console.error("Erro ao copiar: ", err);
+                        alert(
+                            "Erro ao copiar o conteúdo. Tente novamente."
+                        );
+                    });
+            };
+        }
+
+        function generateFilterButtons() {
+            const filterButtonsContainer = document.getElementById('filterButtons');
+
+            // Extrair blocos únicos dos dados das aulas
+            const uniqueBlocks = [...new Set(lessonsData.map(lesson => lesson.block))];
+
+            // Ordenar os blocos
+            uniqueBlocks.sort((a, b) => a - b);
+
+            // Criar botões para cada bloco único
+            uniqueBlocks.forEach(block => {
+                // Encontrar o nome do bloco (pegando da primeira aula desse bloco)
+                const blockLesson = lessonsData.find(lesson => lesson.block === block);
+                const blockName = blockLesson.blockName;
+
+                // Criar um nome curto para o botão (primeira palavra ou abreviação)
+                let shortName = blockName;
+                if (blockName.length > 15) {
+                    // Pegar apenas a primeira palavra ou criar uma abreviação
+                    const words = blockName.split(' ');
+                    shortName = words.length > 1 ? words[0] : blockName.substring(0, 12) + '...';
+                }
+
+                const button = document.createElement('button');
+                button.className = 'filter-btn';
+                button.setAttribute('data-filter', block);
+                button.textContent = shortName;
+                button.title = blockName; // Tooltip com o nome completo
+
+                filterButtonsContainer.appendChild(button);
+            });
+        }
+
+        // Filtros e busca
+        function setupFilters() {
+            generateFilterButtons();
+
+            const filterButtons = document.querySelectorAll(".filter-btn");
+            const searchInput = document.getElementById("searchInput");
+
+            // Filtros por bloco
+            filterButtons.forEach((button) => {
+                button.addEventListener("click", () => {
+                    const filter = button.getAttribute("data-filter");
+
+                    // Atualizar botão ativo
+                    filterButtons.forEach((btn) =>
+                        btn.classList.remove("active")
+                    );
+                    button.classList.add("active");
+
+                    // Aplicar filtro
+                    if (filter === "all") {
+                        renderLessons(lessonsData);
+                    } else {
+                        const filteredLessons = lessonsData.filter(
+                            (lesson) => lesson.block === parseInt(filter)
+                        );
+                        renderLessons(filteredLessons);
+                    }
+                });
+            });
+
+            // Busca
+            searchInput.addEventListener("input", () => {
+                const searchTerm = searchInput.value.toLowerCase();
+
+                if (searchTerm.length > 2) {
+                    const filteredLessons = lessonsData.filter(
+                        (lesson) =>
+                            lesson.title
+                                .toLowerCase()
+                                .includes(searchTerm) ||
+                            lesson.blockName
+                                .toLowerCase()
+                                .includes(searchTerm)
+                    );
+                    renderLessons(filteredLessons);
+                } else if (searchTerm.length === 0) {
+                    // Mostrar todas as aulas se a busca estiver vazia
+                    const activeFilter = document
+                        .querySelector(".filter-btn.active")
+                        .getAttribute("data-filter");
+
+                    if (activeFilter === "all") {
+                        renderLessons(lessonsData);
+                    } else {
+                        const filteredLessons = lessonsData.filter(
+                            (lesson) =>
+                                lesson.block === parseInt(activeFilter)
+                        );
+                        renderLessons(filteredLessons);
+                    }
+                }
+            });
+        }
+
+        // Fechar modal
+        function setupModalClose() {
+            const modal = document.getElementById("lessonModal");
+            const closeButton = document.querySelector(".close-modal");
+
+            closeButton.addEventListener("click", () => {
+                modal.style.display = "none";
+            });
+
+            window.addEventListener("click", (event) => {
+                if (event.target === modal) {
+                    modal.style.display = "none";
+                }
+            });
+        }
+
+        // Inicialização
+        document.addEventListener("DOMContentLoaded", () => {
+            renderLessons(lessonsData);
+            setupFilters();
+            setupModalClose();
+        });
+    </script>
+</body>
+
+</html>
