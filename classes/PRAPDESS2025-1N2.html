@@ -1,682 +1,671 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Plano de Aulas - Programação de Aplicativos</title>
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        />
-        <link rel="stylesheet" href="../styles.css" />
-    </head>
 
-    <body>
-        <header>
-            <div class="header-content">
-                <h1>Programação de Aplicativos</h1>
-                <p class="header-subtitle">
-                    Plano de Aulas - Turma T DESS 2025/1 N2
-                </p>
-                <div class="course-info">
-                    <div class="info-item">
-                        <i class="fas fa-chalkboard-teacher"></i> Professor:
-                        Lucas Eduardo Batista Ferreira
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-envelope"></i> Email:
-                        l.ferreira@edu.sc.senai.br
-                    </div>
-                    <div class="info-item">
-                        <i class="fas fa-clock"></i> Carga Horária: 100 horas
-                    </div>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Plano de Aulas - Programação de Aplicativos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="../styles.css" />
+</head>
+
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Programação de Aplicativos</h1>
+            <p class="header-subtitle">
+                Plano de Aulas - Turma T DESS 2025/1 N2
+            </p>
+            <div class="course-info">
+                <div class="info-item">
+                    <i class="fas fa-chalkboard-teacher"></i> Professor:
+                    Lucas Eduardo Batista Ferreira
                 </div>
-            </div>
-        </header>
-
-        <div class="container">
-            <div class="disclaimer">
-                <i class="fas fa-exclamation-circle"></i>
-                <p>
-                    Este plano de aulas está sujeito a alterações sem aviso
-                    prévio.
-                </p>
-            </div>
-
-            <div class="filters">
-                <span class="filter-label">Filtrar por bloco:</span>
-                <div class="filter-buttons">
-                    <button class="filter-btn active" data-filter="all">
-                        Todos
-                    </button>
-                    <button class="filter-btn" data-filter="1">Lógica</button>
-                    <button class="filter-btn" data-filter="2">
-                        Controle Versão
-                    </button>
-                    <button class="filter-btn" data-filter="3">POO</button>
-                    <button class="filter-btn" data-filter="4">Pandas</button>
-                    <button class="filter-btn" data-filter="5">Flask</button>
-                    <button class="filter-btn" data-filter="6">
-                        Banco de Dados
-                    </button>
-                    <button class="filter-btn" data-filter="7">
-                        Modularização
-                    </button>
-                    <button class="filter-btn" data-filter="8">Testes</button>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i> Email:
+                    l.ferreira@edu.sc.senai.br
                 </div>
-
-                <div class="search-box">
-                    <i class="fas fa-search"></i>
-                    <input
-                        type="text"
-                        placeholder="Buscar aula..."
-                        id="searchInput"
-                    />
-                </div>
-            </div>
-
-            <div class="lessons-container" id="lessonsContainer">
-                <!-- Aulas serão inseridas via JavaScript -->
-            </div>
-        </div>
-
-        <!-- Modal -->
-        <div class="modal" id="lessonModal">
-            <div class="modal-content">
-                <button class="close-modal">&times;</button>
-                <h2 class="modal-title" id="modalLessonTitle">
-                    Título da Aula
-                </h2>
-
-                <div class="modal-info">
-                    <span class="modal-info-item" id="modalBlockInfo"
-                        ><i class="fas fa-cube"></i> Bloco:
-                    </span>
-                    <span class="modal-info-item" id="modalDurationInfo"
-                        ><i class="fas fa-clock"></i> Duração: 4h</span
-                    >
-                </div>
-
-                <p class="modal-description" id="modalLessonDescription">
-                    Descrição da aula...
-                </p>
-
-                <div class="modal-objectives">
-                    <h3>Conhecimentos abordados:</h3>
-                    <ul class="objective-list" id="modalObjectivesList">
-                        <!-- Objetivos serão inseridos via JavaScript -->
-                    </ul>
-                </div>
-
-                <div class="modal-section">
-                    <h3>
-                        <i class="fas fa-laptop-house"></i> Ambiente pedagógico
-                    </h3>
-                    <p id="modalAmbiente">Laboratório de Informática</p>
-                </div>
-
-                <div class="modal-section">
-                    <h3><i class="fas fa-tools"></i> Ferramentas utilizadas</h3>
-                    <p id="modalFerramentas">Python IDLE, Google Colab</p>
-                </div>
-
-                <div class="modal-section">
-                    <h3>
-                        <i class="fas fa-clipboard-check"></i> Critérios de
-                        avaliação
-                    </h3>
-                    <p id="modalAvaliacao">
-                        Exercícios práticos, participação em sala
-                    </p>
-                </div>
-
-                <div class="modal-actions">
-                    <button class="copy-btn" id="copyModalBtn">
-                        <i class="fas fa-copy"></i> Copiar conteúdo
-                    </button>
+                <div class="info-item">
+                    <i class="fas fa-clock"></i> Carga Horária: 100 horas
                 </div>
             </div>
         </div>
+    </header>
 
-        <footer>
-            <div class="footer-content">
-                <p>
-                    Feito com <span class="footer-heart">❤️</span> pelo
-                    professor Lucas
+    <div class="container">
+        <div class="disclaimer">
+            <i class="fas fa-exclamation-circle"></i>
+            <p>
+                Este plano de aulas está sujeito a alterações sem aviso
+                prévio.
+            </p>
+        </div>
+
+        <div class="filters">
+            <span class="filter-label">Filtrar por bloco:</span>
+            <div class="filter-buttons">
+                <button class="filter-btn active" data-filter="all">
+                    Todos
+                </button>
+                <button class="filter-btn" data-filter="1">Lógica</button>
+                <button class="filter-btn" data-filter="2">
+                    Controle Versão
+                </button>
+                <button class="filter-btn" data-filter="3">POO</button>
+                <button class="filter-btn" data-filter="4">Pandas</button>
+                <button class="filter-btn" data-filter="5">Flask</button>
+                <button class="filter-btn" data-filter="6">
+                    Banco de Dados
+                </button>
+                <button class="filter-btn" data-filter="7">
+                    Modularização
+                </button>
+                <button class="filter-btn" data-filter="8">Testes</button>
+            </div>
+
+            <div class="search-box">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Buscar aula..." id="searchInput" />
+            </div>
+        </div>
+
+        <div class="lessons-container" id="lessonsContainer">
+            <!-- Aulas serão inseridas via JavaScript -->
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="lessonModal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <h2 class="modal-title" id="modalLessonTitle">
+                Título da Aula
+            </h2>
+
+            <div class="modal-info">
+                <span class="modal-info-item" id="modalBlockInfo"><i class="fas fa-cube"></i> Bloco:
+                </span>
+                <span class="modal-info-item" id="modalDurationInfo"><i class="fas fa-clock"></i> Duração: 4h</span>
+            </div>
+
+            <p class="modal-description" id="modalLessonDescription">
+                Descrição da aula...
+            </p>
+
+            <div class="modal-objectives">
+                <h3>Conhecimentos abordados:</h3>
+                <ul class="objective-list" id="modalObjectivesList">
+                    <!-- Objetivos serão inseridos via JavaScript -->
+                </ul>
+            </div>
+
+            <div class="modal-section">
+                <h3>
+                    <i class="fas fa-laptop-house"></i> Ambiente pedagógico
+                </h3>
+                <p id="modalAmbiente">Laboratório de Informática</p>
+            </div>
+
+            <div class="modal-section">
+                <h3><i class="fas fa-tools"></i> Ferramentas utilizadas</h3>
+                <p id="modalFerramentas">Python IDLE, Google Colab</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>
+                    <i class="fas fa-clipboard-check"></i> Critérios de
+                    avaliação
+                </h3>
+                <p id="modalAvaliacao">
+                    Exercícios práticos, participação em sala
                 </p>
             </div>
-        </footer>
 
-        <script>
-            const lessonsData = [
-                {
-                    id: "1-1",
-                    title: "Introdução ao Python e conceitos básicos de programação",
-                    block: 1,
-                    blockName: "Lógica de Programação em Python",
-                    description:
-                        "Nesta aula, os alunos aprenderam os fundamentos da linguagem Python, incluindo variáveis, tipos de dados, operadores e estruturas básicas de sintaxe, preparando o terreno para conceitos mais avançados de programação.",
-                    objectives: [
-                        "Sintaxe básica do Python",
-                        "Variáveis e tipos de dados",
-                        "Operadores aritméticos e lógicos",
-                        "Entrada e saída de dados",
-                    ],
-                    ambiente: "Laboratório de Informática",
-                    ferramentas:
-                        "Python IDLE, Google Colab, Material de apoio em PDF, Slides explicativos",
-                    avaliacao:
-                        "Exercícios práticos de codificação, Participação em sala, Quiz de conceitos básicos",
-                    color: "#FF9EAA",
-                },
-                {
-                    id: "1-2",
-                    title: "Estruturas de controle e repetição em Python",
-                    block: 1,
-                    blockName: "Lógica de Programação em Python",
-                    description:
-                        "Esta aula abordou estruturas condicionais (if, elif, else) e de repetição (for, while), permitindo aos alunos criar programas com lógica mais complexa e fluxos de execução controlados.",
-                    objectives: [
-                        "Estruturas condicionais if/elif/else",
-                        "Loops for e while",
-                        "Controle de fluxo com break e continue",
-                        "Aninhamento de estruturas de controle",
-                    ],
-                    ambiente: "Laboratório de Informática",
-                    ferramentas:
-                        "Python IDLE, Exercícios práticos, Exemplos de código, Quadro branco",
-                    avaliacao:
-                        "Resolução de problemas com estruturas de controle, Desenvolvimento de algoritmos, Avaliação prática",
-                    color: "#FF9EAA",
-                },
-                {
-                    id: "2-1",
-                    title: "Introdução ao Git e GitHub para controle de versão",
-                    block: 2,
-                    blockName: "Controle de Versão",
-                    description:
-                        "Os estudantes aprenderam os conceitos fundamentais de controle de versão, comandos básicos do Git e como utilizar o GitHub para hospedar e compartilhar seus projetos de forma colaborativa.",
-                    objectives: [
-                        "Fundamentos de controle de versão",
-                        "Comandos básicos do Git",
-                        "Trabalhando com repositórios remotos",
-                        "GitHub para colaboração",
-                    ],
-                    ambiente: "Laboratório de Informática",
-                    ferramentas:
-                        "Git Bash, GitHub Desktop, Visual Studio Code, Repositórios de exemplo",
-                    avaliacao:
-                        "Criação de repositório Git, Commits e pushes, Trabalho colaborativo no GitHub",
-                    color: "#FFB7C5",
-                },
-                {
-                    id: "3-1",
-                    title: "Introdução à POO - Classes e objetos",
-                    block: 3,
-                    blockName: "Programação Orientada a Objetos",
-                    description:
-                        "Nesta aula, foi introduzido o paradigma de programação orientada a objetos, com foco na criação de classes, instanciação de objetos e compreensão dos conceitos de atributos e métodos.",
-                    objectives: [
-                        "Conceitos de classes e objetos",
-                        "Atributos e métodos",
-                        "Construtores e destrutores",
-                        "Instanciação de objetos",
-                    ],
-                    ambiente: "Laboratório de Informática",
-                    ferramentas:
-                        "Python IDLE, Jupyter Notebook, Diagramas UML, Exemplos de código",
-                    avaliacao:
-                        "Criação de classes simples, Implementação de métodos, Exercícios de modelagem",
-                    color: "#FF58AE",
-                },
-                {
-                    id: "3-2",
-                    title: "Pilares da POO - Herança e Polimorfismo",
-                    block: 3,
-                    blockName: "Programação Orientada a Objetos",
-                    description:
-                        "Os alunos exploraram os conceitos de herança (criação de hierarquias de classes) e polimorfismo (capacidade de objetos se comportarem de maneira diferente), fundamentais para o design de software orientado a objetos.",
-                    objectives: [
-                        "Herança simples e múltipla",
-                        "Sobrescrita de métodos",
-                        "Polimorfismo e interfaces",
-                        "Classes abstratas",
-                    ],
-                    ambiente: "Laboratório de Informática",
-                    ferramentas:
-                        "Python IDLE, Diagramas de herança, Casos de estudo, Templates de código",
-                    avaliacao:
-                        "Implementação de hierarquias de classes, Exercícios de polimorfismo, Projeto prático",
-                    color: "#FF58AE",
-                },
-                {
-                    id: "3-3",
-                    title: "Pilares da POO - Encapsulamento e Abstração",
-                    block: 3,
-                    blockName: "Programação Orientada a Objetos",
-                    description:
-                        "Esta aula abordou os princípios de encapsulamento (proteção de dados) e abstração (simplificação da complexidade), completando os quatro pilares da programação orientada a objetos.",
-                    objectives: [
-                        "Modificadores de acesso",
-                        "Encapsulamento com propriedades",
-                        "Abstração de implementação",
-                        "Design com interfaces",
-                    ],
-                    ambiente: "Laboratório de Informática",
-                    ferramentas:
-                        "Python IDLE, Exemplos de encapsulamento, Diagramas conceituais, Exercícios guiados",
-                    avaliacao:
-                        "Implementação de encapsulamento, Projetos com abstração, Avaliação de design OO",
-                    color: "#FF58AE",
-                },
-                {
-                    id: "3-4",
-                    title: "Aplicações práticas de POO em Python",
-                    block: 3,
-                    blockName: "Programação Orientada a Objetos",
-                    description:
-                        "Aula prática onde os alunos aplicaram todos os conceitos de POO aprendidos anteriormente em um projeto concreto, desenvolvendo soluções com código organizado e reutilizável.",
-                    objectives: [
-                        "Design de classes para problemas reais",
-                        "Relações entre classes",
-                        "Implementação de hierarquias",
-                        "Projeto prático com POO",
-                    ],
-                    ambiente: "Laboratório de Informática",
-                    ferramentas:
-                        "Visual Studio Code, Git para versionamento, Templates de projeto, Bibliotecas Python",
-                    avaliacao:
-                        "Projeto aplicado de POO, Qualidade do design, Organização do código, Funcionalidade",
-                    color: "#FF58AE",
-                },
-                {
-                    id: "4-1",
-                    title: "Introdução ao Pandas e estruturas de dados",
-                    block: 4,
-                    blockName:
-                        "Pandas - Biblioteca Python para manipulação e análise de dados",
-                    description:
-                        "Os estudantes foram introduzidos à biblioteca Pandas, aprendendo sobre as estruturas Series e DataFrame, e como manipulá-las para análise eficiente de dados.",
-                    objectives: [
-                        "Estruturas Series e DataFrame",
-                        "Leitura e escrita de dados",
-                        "Seleção e indexação",
-                        "Operações básicas com DataFrames",
-                    ],
-                    ambiente: "Laboratório de Informática",
-                    ferramentas:
-                        "Jupyter Notebook, Pandas library, Datasets de exemplo, Google Colab",
-                    avaliacao:
-                        "Manipulação de DataFrames, Exercícios de análise, Projeto com dados reais",
-                    color: "#D46A94",
-                },
-                {
-                    id: "4-2",
-                    title: "Operações com DataFrames e análise de dados",
-                    block: 4,
-                    blockName:
-                        "Pandas - Biblioteca Python para manipulação e análise de dados",
-                    description:
-                        "Esta aula focou em operações avançadas com DataFrames, incluindo filtragem, agregação, combinação de datasets e técnicas básicas de análise exploratória de dados.",
-                    objectives: [
-                        "Filtragem e query de dados",
-                        "Agregação e groupby",
-                        "Combinação de DataFrames",
-                        "Análise exploratória básica",
-                    ],
-                    ambiente: "Laboratório de Informática",
-                    ferramentas:
-                        "Jupyter Notebook, Dataset diversificados, Bibliotecas de visualização, Exercícios práticos",
-                    avaliacao:
-                        "Análise exploratória de dados, Relatórios descritivos, Projeto de análise",
-                    color: "#D46A94",
-                },
-                {
-                    id: "5-1",
-                    title: "Introdução ao Flask e configuração do ambiente",
-                    block: 5,
-                    blockName:
-                        "Flask - Framework Python para desenvolvimento web",
-                    description:
-                        "Nesta aula, os alunos foram introduzidos ao Flask, aprendendo a instalar o framework, configurar o ambiente de desenvolvimento e entender a estrutura básica de uma aplicação web.",
-                    objectives: [
-                        "Instalação do Flask",
-                        "Estrutura básica de projeto",
-                        "Roteamento de URLs",
-                        "Primeira aplicação web simples",
-                    ],
-                    ambiente: "Laboratório de Informática",
-                    ferramentas:
-                        "Python, Flask library, Visual Studio Code, Navegador web",
-                    avaliacao:
-                        "Aplicação web simples funcionando, Configuração correta do ambiente, Teste de rotas básicas",
-                    color: "#AD5C7F",
-                },
-                {
-                    id: "5-2",
-                    title: "Roteamento e templates HTML",
-                    block: 5,
-                    blockName:
-                        "Flask - Framework Python para desenvolvimento web",
-                    description:
-                        "Os alunos aprenderam a criar rotas dinâmicas em Flask e integrar templates HTML usando o mecanismo Jinja2, permitindo gerar páginas web dinâmicas.",
-                    objectives: [
-                        "Criação de rotas Flask",
-                        "Uso de variáveis em rotas",
-                        "Integração com templates HTML",
-                        "Introdução ao Jinja2",
-                    ],
-                    ambiente: "Laboratório de Informática",
-                    ferramentas:
-                        "Flask, Jinja2, Visual Studio Code, Navegador web",
-                    avaliacao:
-                        "Rotas funcionando corretamente, Templates renderizados, Variáveis dinâmicas exibidas",
-                    color: "#AD5C7F",
-                },
-                {
-                    id: "5-3",
-                    title: "Formulários e requisições HTTP",
-                    block: 5,
-                    blockName:
-                        "Flask - Framework Python para desenvolvimento web",
-                    description:
-                        "Aula prática focada em criar formulários HTML, enviar dados via POST e GET, e tratar requisições HTTP dentro da aplicação Flask.",
-                    objectives: [
-                        "Criação de formulários HTML",
-                        "Tratamento de requisições POST e GET",
-                        "Validação básica de dados",
-                        "Feedback de submissão ao usuário",
-                    ],
-                    ambiente: "Laboratório de Informática",
-                    ferramentas:
-                        "Flask, HTML, Visual Studio Code, Navegador web",
-                    avaliacao:
-                        "Formulários funcionais, Dados recebidos e processados corretamente, Respostas adequadas ao usuário",
-                    color: "#AD5C7F",
-                },
-                {
-                    id: "5-4",
-                    title: "Templates avançados e layouts",
-                    block: 5,
-                    blockName:
-                        "Flask - Framework Python para desenvolvimento web",
-                    description:
-                        "Os alunos aprenderam a organizar templates, criar layouts consistentes com herança de templates e aplicar CSS básico em páginas Flask.",
-                    objectives: [
-                        "Herança de templates",
-                        "Criação de layouts consistentes",
-                        "Integração com CSS",
-                        "Componentização de páginas",
-                    ],
-                    ambiente: "Laboratório de Informática",
-                    ferramentas:
-                        "Flask, HTML, CSS, Visual Studio Code, Navegador web",
-                    avaliacao:
-                        "Layouts funcionais, Templates reaproveitáveis, Estilo consistente aplicado",
-                    color: "#AD5C7F",
-                },
-                {
-                    id: "5-5",
-                    title: "Projeto prático com Flask",
-                    block: 5,
-                    blockName:
-                        "Flask - Framework Python para desenvolvimento web",
-                    description:
-                        "Aula prática onde os alunos desenvolveram um projeto web completo em Flask, integrando rotas, templates, formulários e layout em uma aplicação funcional.",
-                    objectives: [
-                        "Projeto web completo",
-                        "Integração de rotas, templates e formulários",
-                        "Organização de código em Flask",
-                        "Teste funcional da aplicação",
-                    ],
-                    ambiente: "Laboratório de Informática",
-                    ferramentas:
-                        "Flask, HTML, CSS, Visual Studio Code, Navegador web",
-                    avaliacao:
-                        "Aplicação web funcional, Qualidade do código, Integração correta de componentes, Apresentação do projeto",
-                    color: "#AD5C7F",
-                },
-                ,
-                {
-                    id: "6-1",
-                    title: "Conexão Python-MySQL e operações básicas",
-                    block: 6,
-                    blockName: "Python integrado ao banco de dados",
-                    description:
-                        "Nesta aula, os estudantes aprenderam a estabelecer conexões entre Python e MySQL, executando operações básicas de CRUD (Create, Read, Update, Delete) em bancos de dados.",
-                    objectives: [
-                        "Conexão com MySQL",
-                        "Operações CRUD básicas",
-                        "Execução de queries simples",
-                        "Tratamento de resultados",
-                    ],
-                    ambiente: "Laboratório de Informática",
-                    ferramentas:
-                        "MySQL Server, MySQL Connector/Python, XAMPP, PhpMyAdmin",
-                    avaliacao:
-                        "Conexão bem-sucedida com BD, Operações CRUD funcionais, Tratamento de erros",
-                    color: "#875971",
-                },
-                {
-                    id: "6-2",
-                    title: "Executando consultas e manipulando dados",
-                    block: 6,
-                    blockName: "Python integrado ao banco de dados",
-                    description:
-                        "Os alunos exploraram a execução de consultas SQL mais complexas através do Python, incluindo junções, subconsultas e manipulação avançada de resultados.",
-                    objectives: [
-                        "Consultas SQL complexas",
-                        "Junções e subconsultas",
-                        "Manipulação de resultados",
-                        "Transações simples",
-                    ],
-                    ambiente: "Laboratório de Informática",
-                    ferramentas:
-                        "MySQL Workbench, Datasets complexos, Exercícios de consulta, Debugging tools",
-                    avaliacao:
-                        "Consultas complexas funcionais, Manipulação de dados, Eficiência das queries",
-                    color: "#875971",
-                },
-                {
-                    id: "6-3",
-                    title: "Transações e tratamento de erros",
-                    block: 6,
-                    blockName: "Python integrado ao banco de dados",
-                    description:
-                        "Esta aula abordou o controle de transações em operações de banco de dados e técnicas de tratamento de erros, garantindo a integridade dos dados em aplicações Python.",
-                    objectives: [
-                        "Controle de transações",
-                        "Tratamento de erros em operações BD",
-                        "Garantia de integridade dos dados",
-                        "Rollback e commit",
-                    ],
-                    ambiente: "Laboratório de Informática",
-                    ferramentas:
-                        "MySQL com transações, Casos de erro simulados, Logs de transação, Exercícios práticos",
-                    avaliacao:
-                        "Controle adequado de transações, Tratamento de erros, Integridade dos dados",
-                    color: "#875971",
-                },
-                {
-                    id: "6-4",
-                    title: "ORMs e frameworks de acesso a dados",
-                    block: 6,
-                    blockName: "Python integrado ao banco de dados",
-                    description:
-                        "Os estudantes foram introduzidos ao conceito de ORM (Object-Relational Mapping) e frameworks como SQLAlchemy, que simplificam a interação com bancos de dados relacionais.",
-                    objectives: [
-                        "Conceito de ORM",
-                        "Introdução ao SQLAlchemy",
-                        "Mapeamento objeto-relacional",
-                        "Vantagens do uso de ORM",
-                    ],
-                    ambiente: "Laboratório de Informática",
-                    ferramentas:
-                        "SQLAlchemy library, SQLite para testes, Exemplos de mapeamento, Documentação ORM",
-                    avaliacao:
-                        "Implementação de ORM, Mapeamento correto, Vantagens identificadas",
-                    color: "#875971",
-                },
-                {
-                    id: "6-5",
-                    title: "Projeto de integração com banco de dados",
-                    block: 6,
-                    blockName: "Python integrado ao banco de dados",
-                    description:
-                        "Aula prática onde os alunos desenvolveram um projeto completo que integra Python com MySQL, aplicando todos os conceitos aprendidos sobre acesso a dados.",
-                    objectives: [
-                        "Projeto de integração com BD",
-                        "Aplicação de conceitos aprendidos",
-                        "Desenvolvimento de aplicação com persistência",
-                        "Testes de integração",
-                    ],
-                    ambiente: "Laboratório de Informática",
-                    ferramentas:
-                        "MySQL Database, Python aplicação, Ferramentas de teste, Versionamento Git",
-                    avaliacao:
-                        "Projeto funcional completo, Integração adequada, Performance, Documentação",
-                    color: "#875971",
-                },
-                {
-                    id: "7-1",
-                    title: "Princípios de modularização e separação de concerns",
-                    block: 7,
-                    blockName: "Modularização - Software separado em camadas",
-                    description:
-                        "Nesta aula, os alunos aprenderam os princípios de design modular, incluindo a separação de responsabilidades (SoC) e como organizar código em módulos coesos e com baixo acoplamento.",
-                    objectives: [
-                        "Princípios de modularização",
-                        "Separação de responsabilidades",
-                        "Coesão e acoplamento",
-                        "Design de módulos",
-                    ],
-                    ambiente: "Sala de Aula e Laboratório",
-                    ferramentas:
-                        "Diagramas arquiteturais, Exemplos de código modular, Casos de estudo, Slides teóricos",
-                    avaliacao:
-                        "Análise de coesão/acoplamento, Projetos modulares, Organização de código",
-                    color: "#614A5C",
-                },
-                {
-                    id: "7-2",
-                    title: "Padrões de arquitetura em camadas",
-                    block: 7,
-                    blockName: "Modularização - Software separado em camadas",
-                    description:
-                        "Os estudantes exploraram padrões de arquitetura em camadas (como MVC e layered architecture) e como aplicá-los em projetos Python para melhor organização e manutenibilidade.",
-                    objectives: [
-                        "Padrão MVC",
-                        "Arquitetura em camadas",
-                        "Aplicação em projetos Python",
-                        "Vantagens da arquitetura em camadas",
-                    ],
-                    ambiente: "Sala de Aula e Laboratório",
-                    ferramentas:
-                        "Diagramas MVC, Templates de projeto, Exemplos de camadas, Ferramentas de diagramação",
-                    avaliacao:
-                        "Implementação de padrões MVC, Separação em camadas, Qualidade arquitetural",
-                    color: "#614A5C",
-                },
-                {
-                    id: "7-3",
-                    title: "Aplicação prática em projeto Python",
-                    block: 7,
-                    blockName: "Modularização - Software separado em camadas",
-                    description:
-                        "Aula prática onde os alunos refatoraram um projeto existente aplicando os princípios de modularização e arquitetura em camadas aprendidos nas aulas anteriores.",
-                    objectives: [
-                        "Refatoração de código",
-                        "Aplicação de padrões arquiteturais",
-                        "Organização de projeto em camadas",
-                        "Melhoria de manutenibilidade",
-                    ],
-                    ambiente: "Laboratório de Informática",
-                    ferramentas:
-                        "Projetos legados para refatorar, Ferramentas de análise de código, Git para versionamento",
-                    avaliacao:
-                        "Qualidade da refatoração, Aplicação dos padrões, Melhoria na manutenibilidade",
-                    color: "#614A5C",
-                },
-                {
-                    id: "8-1",
-                    title: "Fundamentos de testes unitários com Pytest",
-                    block: 8,
-                    blockName: "Testes unitários",
-                    description:
-                        "Nesta aula, os alunos foram introduzidos aos conceitos de testes unitários, aprendendo a escrever e executar testes automatizados usando o framework Pytest para validar o funcionamento de unidades de código.",
-                    objectives: [
-                        "Conceitos de testes unitários",
-                        "Framework Pytest",
-                        "Escrita de testes simples",
-                        "Execução e relatórios de testes",
-                    ],
-                    ambiente: "Laboratório de Informática",
-                    ferramentas:
-                        "Pytest framework, Exemplos de testes, Cobertura de código, Relatórios de teste",
-                    avaliacao:
-                        "Criação de testes unitários, Cobertura de código, Qualidade dos testes",
-                    color: "#3C2E3E",
-                },
-                {
-                    id: "8-2",
-                    title: "TDD e boas práticas em testes automatizados",
-                    block: 8,
-                    blockName: "Testes unitários",
-                    description:
-                        "Os estudantes aprenderam a metodologia Test-Driven Development (TDD) e boas práticas para escrita de testes eficazes, incluindo organização, nomenclatura e cobertura de testes.",
-                    objectives: [
-                        "Metodologia TDD",
-                        "Boas práticas em testes",
-                        "Organização de testes",
-                        "Cobertura de testes",
-                    ],
-                    ambiente: "Laboratório de Informática",
-                    ferramentas:
-                        "Pytest avançado, Exemplos TDD, Ferramentas de métricas, Casos de estudo",
-                    avaliacao:
-                        "Aplicação de TDD, Qualidade dos testes, Organização da suite de testes",
-                    color: "#3C2E3E",
-                },
-                {
-                    id: "8-3",
-                    title: "Implementação de testes em projeto real",
-                    block: 8,
-                    blockName: "Testes unitários",
-                    description:
-                        "Aula prática onde os alunos aplicaram testes unitários em um projeto real, criando uma suite de testes abrangente que garante a qualidade e confiabilidade do software desenvolvido.",
-                    objectives: [
-                        "Testes em projeto real",
-                        "Suite de testes abrangente",
-                        "Garantia de qualidade",
-                        "Testes de regressão",
-                    ],
-                    ambiente: "Laboratório de Informática",
-                    ferramentas:
-                        "Projetos existentes, Pytest completo, Ferramentas de CI/CD, Relatórios de qualidade",
-                    avaliacao:
-                        "Suite de testes completa, Cobertura adequada, Qualidade do software testado",
-                    color: "#3C2E3E",
-                },
-            ];
+            <div class="modal-actions">
+                <button class="copy-btn" id="copyModalBtn">
+                    <i class="fas fa-copy"></i> Copiar conteúdo
+                </button>
+            </div>
+        </div>
+    </div>
 
-            // Função para renderizar as aulas
-            function renderLessons(lessons) {
-                const container = document.getElementById("lessonsContainer");
-                container.innerHTML = "";
+    <footer>
+        <div class="footer-content">
+            <p>
+                Feito com <span class="footer-heart">❤️</span> pelo
+                professor Lucas
+            </p>
+        </div>
+    </footer>
 
-                lessons.forEach((lesson) => {
-                    const lessonCard = document.createElement("div");
-                    lessonCard.className = "lesson-card";
-                    lessonCard.setAttribute("data-block", lesson.block);
+    <script>
+        const lessonsData = [
+            {
+                id: "1-1",
+                title: "Introdução ao Python e conceitos básicos de programação",
+                block: 1,
+                blockName: "Lógica de Programação em Python",
+                description:
+                    "Nesta aula, os alunos aprenderam os fundamentos da linguagem Python, incluindo variáveis, tipos de dados, operadores e estruturas básicas de sintaxe, preparando o terreno para conceitos mais avançados de programação.",
+                objectives: [
+                    "Sintaxe básica do Python",
+                    "Variáveis e tipos de dados",
+                    "Operadores aritméticos e lógicos",
+                    "Entrada e saída de dados",
+                ],
+                ambiente: "Laboratório de Informática",
+                ferramentas:
+                    "Python IDLE, Google Colab, Material de apoio em PDF, Slides explicativos",
+                avaliacao:
+                    "Exercícios práticos de codificação, Participação em sala, Quiz de conceitos básicos",
+                color: "#FF9EAA",
+            },
+            {
+                id: "1-2",
+                title: "Estruturas de controle e repetição em Python",
+                block: 1,
+                blockName: "Lógica de Programação em Python",
+                description:
+                    "Esta aula abordou estruturas condicionais (if, elif, else) e de repetição (for, while), permitindo aos alunos criar programas com lógica mais complexa e fluxos de execução controlados.",
+                objectives: [
+                    "Estruturas condicionais if/elif/else",
+                    "Loops for e while",
+                    "Controle de fluxo com break e continue",
+                    "Aninhamento de estruturas de controle",
+                ],
+                ambiente: "Laboratório de Informática",
+                ferramentas:
+                    "Python IDLE, Exercícios práticos, Exemplos de código, Quadro branco",
+                avaliacao:
+                    "Resolução de problemas com estruturas de controle, Desenvolvimento de algoritmos, Avaliação prática",
+                color: "#FF9EAA",
+            },
+            {
+                id: "2-1",
+                title: "Introdução ao Git e GitHub para controle de versão",
+                block: 2,
+                blockName: "Controle de Versão",
+                description:
+                    "Os estudantes aprenderam os conceitos fundamentais de controle de versão, comandos básicos do Git e como utilizar o GitHub para hospedar e compartilhar seus projetos de forma colaborativa.",
+                objectives: [
+                    "Fundamentos de controle de versão",
+                    "Comandos básicos do Git",
+                    "Trabalhando com repositórios remotos",
+                    "GitHub para colaboração",
+                ],
+                ambiente: "Laboratório de Informática",
+                ferramentas:
+                    "Git Bash, GitHub Desktop, Visual Studio Code, Repositórios de exemplo",
+                avaliacao:
+                    "Criação de repositório Git, Commits e pushes, Trabalho colaborativo no GitHub",
+                color: "#FFB7C5",
+            },
+            {
+                id: "3-1",
+                title: "Introdução à POO - Classes e objetos",
+                block: 3,
+                blockName: "Programação Orientada a Objetos",
+                description:
+                    "Nesta aula, foi introduzido o paradigma de programação orientada a objetos, com foco na criação de classes, instanciação de objetos e compreensão dos conceitos de atributos e métodos.",
+                objectives: [
+                    "Conceitos de classes e objetos",
+                    "Atributos e métodos",
+                    "Construtores e destrutores",
+                    "Instanciação de objetos",
+                ],
+                ambiente: "Laboratório de Informática",
+                ferramentas:
+                    "Python IDLE, Jupyter Notebook, Diagramas UML, Exemplos de código",
+                avaliacao:
+                    "Criação de classes simples, Implementação de métodos, Exercícios de modelagem",
+                color: "#FF58AE",
+            },
+            {
+                id: "3-2",
+                title: "Pilares da POO - Herança e Polimorfismo",
+                block: 3,
+                blockName: "Programação Orientada a Objetos",
+                description:
+                    "Os alunos exploraram os conceitos de herança (criação de hierarquias de classes) e polimorfismo (capacidade de objetos se comportarem de maneira diferente), fundamentais para o design de software orientado a objetos.",
+                objectives: [
+                    "Herança simples e múltipla",
+                    "Sobrescrita de métodos",
+                    "Polimorfismo e interfaces",
+                    "Classes abstratas",
+                ],
+                ambiente: "Laboratório de Informática",
+                ferramentas:
+                    "Python IDLE, Diagramas de herança, Casos de estudo, Templates de código",
+                avaliacao:
+                    "Implementação de hierarquias de classes, Exercícios de polimorfismo, Projeto prático",
+                color: "#FF58AE",
+            },
+            {
+                id: "3-3",
+                title: "Pilares da POO - Encapsulamento e Abstração",
+                block: 3,
+                blockName: "Programação Orientada a Objetos",
+                description:
+                    "Esta aula abordou os princípios de encapsulamento (proteção de dados) e abstração (simplificação da complexidade), completando os quatro pilares da programação orientada a objetos.",
+                objectives: [
+                    "Modificadores de acesso",
+                    "Encapsulamento com propriedades",
+                    "Abstração de implementação",
+                    "Design com interfaces",
+                ],
+                ambiente: "Laboratório de Informática",
+                ferramentas:
+                    "Python IDLE, Exemplos de encapsulamento, Diagramas conceituais, Exercícios guiados",
+                avaliacao:
+                    "Implementação de encapsulamento, Projetos com abstração, Avaliação de design OO",
+                color: "#FF58AE",
+            },
+            {
+                id: "3-4",
+                title: "Aplicações práticas de POO em Python",
+                block: 3,
+                blockName: "Programação Orientada a Objetos",
+                description:
+                    "Aula prática onde os alunos aplicaram todos os conceitos de POO aprendidos anteriormente em um projeto concreto, desenvolvendo soluções com código organizado e reutilizável.",
+                objectives: [
+                    "Design de classes para problemas reais",
+                    "Relações entre classes",
+                    "Implementação de hierarquias",
+                    "Projeto prático com POO",
+                ],
+                ambiente: "Laboratório de Informática",
+                ferramentas:
+                    "Visual Studio Code, Git para versionamento, Templates de projeto, Bibliotecas Python",
+                avaliacao:
+                    "Projeto aplicado de POO, Qualidade do design, Organização do código, Funcionalidade",
+                color: "#FF58AE",
+            },
+            {
+                id: "4-1",
+                title: "Introdução ao Pandas e estruturas de dados",
+                block: 4,
+                blockName:
+                    "Pandas - Biblioteca Python para manipulação e análise de dados",
+                description:
+                    "Os estudantes foram introduzidos à biblioteca Pandas, aprendendo sobre as estruturas Series e DataFrame, e como manipulá-las para análise eficiente de dados.",
+                objectives: [
+                    "Estruturas Series e DataFrame",
+                    "Leitura e escrita de dados",
+                    "Seleção e indexação",
+                    "Operações básicas com DataFrames",
+                ],
+                ambiente: "Laboratório de Informática",
+                ferramentas:
+                    "Jupyter Notebook, Pandas library, Datasets de exemplo, Google Colab",
+                avaliacao:
+                    "Manipulação de DataFrames, Exercícios de análise, Projeto com dados reais",
+                color: "#D46A94",
+            },
+            {
+                id: "4-2",
+                title: "Operações com DataFrames e análise de dados",
+                block: 4,
+                blockName:
+                    "Pandas - Biblioteca Python para manipulação e análise de dados",
+                description:
+                    "Esta aula focou em operações avançadas com DataFrames, incluindo filtragem, agregação, combinação de datasets e técnicas básicas de análise exploratória de dados.",
+                objectives: [
+                    "Filtragem e query de dados",
+                    "Agregação e groupby",
+                    "Combinação de DataFrames",
+                    "Análise exploratória básica",
+                ],
+                ambiente: "Laboratório de Informática",
+                ferramentas:
+                    "Jupyter Notebook, Dataset diversificados, Bibliotecas de visualização, Exercícios práticos",
+                avaliacao:
+                    "Análise exploratória de dados, Relatórios descritivos, Projeto de análise",
+                color: "#D46A94",
+            },
+            {
+                id: "5-1",
+                title: "Introdução ao Flask e configuração do ambiente",
+                block: 5,
+                blockName:
+                    "Flask - Framework Python para desenvolvimento web",
+                description:
+                    "Nesta aula, os alunos foram introduzidos ao Flask, aprendendo a instalar o framework, configurar o ambiente de desenvolvimento e entender a estrutura básica de uma aplicação web.",
+                objectives: [
+                    "Instalação do Flask",
+                    "Estrutura básica de projeto",
+                    "Roteamento de URLs",
+                    "Primeira aplicação web simples",
+                ],
+                ambiente: "Laboratório de Informática",
+                ferramentas:
+                    "Python, Flask library, Visual Studio Code, Navegador web",
+                avaliacao:
+                    "Aplicação web simples funcionando, Configuração correta do ambiente, Teste de rotas básicas",
+                color: "#AD5C7F",
+            },
+            {
+                id: "5-2",
+                title: "Roteamento e templates HTML",
+                block: 5,
+                blockName:
+                    "Flask - Framework Python para desenvolvimento web",
+                description:
+                    "Os alunos aprenderam a criar rotas dinâmicas em Flask e integrar templates HTML usando o mecanismo Jinja2, permitindo gerar páginas web dinâmicas.",
+                objectives: [
+                    "Criação de rotas Flask",
+                    "Uso de variáveis em rotas",
+                    "Integração com templates HTML",
+                    "Introdução ao Jinja2",
+                ],
+                ambiente: "Laboratório de Informática",
+                ferramentas:
+                    "Flask, Jinja2, Visual Studio Code, Navegador web",
+                avaliacao:
+                    "Rotas funcionando corretamente, Templates renderizados, Variáveis dinâmicas exibidas",
+                color: "#AD5C7F",
+            },
+            {
+                id: "5-3",
+                title: "Formulários e requisições HTTP",
+                block: 5,
+                blockName:
+                    "Flask - Framework Python para desenvolvimento web",
+                description:
+                    "Aula prática focada em criar formulários HTML, enviar dados via POST e GET, e tratar requisições HTTP dentro da aplicação Flask.",
+                objectives: [
+                    "Criação de formulários HTML",
+                    "Tratamento de requisições POST e GET",
+                    "Validação básica de dados",
+                    "Feedback de submissão ao usuário",
+                ],
+                ambiente: "Laboratório de Informática",
+                ferramentas:
+                    "Flask, HTML, Visual Studio Code, Navegador web",
+                avaliacao:
+                    "Formulários funcionais, Dados recebidos e processados corretamente, Respostas adequadas ao usuário",
+                color: "#AD5C7F",
+            },
+            {
+                id: "5-4",
+                title: "Templates avançados e layouts",
+                block: 5,
+                blockName:
+                    "Flask - Framework Python para desenvolvimento web",
+                description:
+                    "Os alunos aprenderam a organizar templates, criar layouts consistentes com herança de templates e aplicar CSS básico em páginas Flask.",
+                objectives: [
+                    "Herança de templates",
+                    "Criação de layouts consistentes",
+                    "Integração com CSS",
+                    "Componentização de páginas",
+                ],
+                ambiente: "Laboratório de Informática",
+                ferramentas:
+                    "Flask, HTML, CSS, Visual Studio Code, Navegador web",
+                avaliacao:
+                    "Layouts funcionais, Templates reaproveitáveis, Estilo consistente aplicado",
+                color: "#AD5C7F",
+            },
+            {
+                id: "5-5",
+                title: "Projeto prático com Flask",
+                block: 5,
+                blockName:
+                    "Flask - Framework Python para desenvolvimento web",
+                description:
+                    "Aula prática onde os alunos desenvolveram um projeto web completo em Flask, integrando rotas, templates, formulários e layout em uma aplicação funcional.",
+                objectives: [
+                    "Projeto web completo",
+                    "Integração de rotas, templates e formulários",
+                    "Organização de código em Flask",
+                    "Teste funcional da aplicação",
+                ],
+                ambiente: "Laboratório de Informática",
+                ferramentas:
+                    "Flask, HTML, CSS, Visual Studio Code, Navegador web",
+                avaliacao:
+                    "Aplicação web funcional, Qualidade do código, Integração correta de componentes, Apresentação do projeto",
+                color: "#AD5C7F",
+            },
+            ,
+            {
+                id: "6-1",
+                title: "Conexão Python-MySQL e operações básicas",
+                block: 6,
+                blockName: "Python integrado ao banco de dados",
+                description:
+                    "Nesta aula, os estudantes aprenderam a estabelecer conexões entre Python e MySQL, executando operações básicas de CRUD (Create, Read, Update, Delete) em bancos de dados.",
+                objectives: [
+                    "Conexão com MySQL",
+                    "Operações CRUD básicas",
+                    "Execução de queries simples",
+                    "Tratamento de resultados",
+                ],
+                ambiente: "Laboratório de Informática",
+                ferramentas:
+                    "MySQL Server, MySQL Connector/Python, XAMPP, PhpMyAdmin",
+                avaliacao:
+                    "Conexão bem-sucedida com BD, Operações CRUD funcionais, Tratamento de erros",
+                color: "#875971",
+            },
+            {
+                id: "6-2",
+                title: "Executando consultas e manipulando dados",
+                block: 6,
+                blockName: "Python integrado ao banco de dados",
+                description:
+                    "Os alunos exploraram a execução de consultas SQL mais complexas através do Python, incluindo junções, subconsultas e manipulação avançada de resultados.",
+                objectives: [
+                    "Consultas SQL complexas",
+                    "Junções e subconsultas",
+                    "Manipulação de resultados",
+                    "Transações simples",
+                ],
+                ambiente: "Laboratório de Informática",
+                ferramentas:
+                    "MySQL Workbench, Datasets complexos, Exercícios de consulta, Debugging tools",
+                avaliacao:
+                    "Consultas complexas funcionais, Manipulação de dados, Eficiência das queries",
+                color: "#875971",
+            },
+            {
+                id: "6-3",
+                title: "Transações e tratamento de erros",
+                block: 6,
+                blockName: "Python integrado ao banco de dados",
+                description:
+                    "Esta aula abordou o controle de transações em operações de banco de dados e técnicas de tratamento de erros, garantindo a integridade dos dados em aplicações Python.",
+                objectives: [
+                    "Controle de transações",
+                    "Tratamento de erros em operações BD",
+                    "Garantia de integridade dos dados",
+                    "Rollback e commit",
+                ],
+                ambiente: "Laboratório de Informática",
+                ferramentas:
+                    "MySQL com transações, Casos de erro simulados, Logs de transação, Exercícios práticos",
+                avaliacao:
+                    "Controle adequado de transações, Tratamento de erros, Integridade dos dados",
+                color: "#875971",
+            },
+            {
+                id: "6-4",
+                title: "ORMs e frameworks de acesso a dados",
+                block: 6,
+                blockName: "Python integrado ao banco de dados",
+                description:
+                    "Os estudantes foram introduzidos ao conceito de ORM (Object-Relational Mapping) e frameworks como SQLAlchemy, que simplificam a interação com bancos de dados relacionais.",
+                objectives: [
+                    "Conceito de ORM",
+                    "Introdução ao SQLAlchemy",
+                    "Mapeamento objeto-relacional",
+                    "Vantagens do uso de ORM",
+                ],
+                ambiente: "Laboratório de Informática",
+                ferramentas:
+                    "SQLAlchemy library, SQLite para testes, Exemplos de mapeamento, Documentação ORM",
+                avaliacao:
+                    "Implementação de ORM, Mapeamento correto, Vantagens identificadas",
+                color: "#875971",
+            },
+            {
+                id: "6-5",
+                title: "Projeto de integração com banco de dados",
+                block: 6,
+                blockName: "Python integrado ao banco de dados",
+                description:
+                    "Aula prática onde os alunos desenvolveram um projeto completo que integra Python com MySQL, aplicando todos os conceitos aprendidos sobre acesso a dados.",
+                objectives: [
+                    "Projeto de integração com BD",
+                    "Aplicação de conceitos aprendidos",
+                    "Desenvolvimento de aplicação com persistência",
+                    "Testes de integração",
+                ],
+                ambiente: "Laboratório de Informática",
+                ferramentas:
+                    "MySQL Database, Python aplicação, Ferramentas de teste, Versionamento Git",
+                avaliacao:
+                    "Projeto funcional completo, Integração adequada, Performance, Documentação",
+                color: "#875971",
+            },
+            {
+                id: "7-1",
+                title: "Princípios de modularização e separação de concerns",
+                block: 7,
+                blockName: "Modularização - Software separado em camadas",
+                description:
+                    "Nesta aula, os alunos aprenderam os princípios de design modular, incluindo a separação de responsabilidades (SoC) e como organizar código em módulos coesos e com baixo acoplamento.",
+                objectives: [
+                    "Princípios de modularização",
+                    "Separação de responsabilidades",
+                    "Coesão e acoplamento",
+                    "Design de módulos",
+                ],
+                ambiente: "Sala de Aula e Laboratório",
+                ferramentas:
+                    "Diagramas arquiteturais, Exemplos de código modular, Casos de estudo, Slides teóricos",
+                avaliacao:
+                    "Análise de coesão/acoplamento, Projetos modulares, Organização de código",
+                color: "#614A5C",
+            },
+            {
+                id: "7-2",
+                title: "Padrões de arquitetura em camadas",
+                block: 7,
+                blockName: "Modularização - Software separado em camadas",
+                description:
+                    "Os estudantes exploraram padrões de arquitetura em camadas (como MVC e layered architecture) e como aplicá-los em projetos Python para melhor organização e manutenibilidade.",
+                objectives: [
+                    "Padrão MVC",
+                    "Arquitetura em camadas",
+                    "Aplicação em projetos Python",
+                    "Vantagens da arquitetura em camadas",
+                ],
+                ambiente: "Sala de Aula e Laboratório",
+                ferramentas:
+                    "Diagramas MVC, Templates de projeto, Exemplos de camadas, Ferramentas de diagramação",
+                avaliacao:
+                    "Implementação de padrões MVC, Separação em camadas, Qualidade arquitetural",
+                color: "#614A5C",
+            },
+            {
+                id: "7-3",
+                title: "Aplicação prática em projeto Python",
+                block: 7,
+                blockName: "Modularização - Software separado em camadas",
+                description:
+                    "Aula prática onde os alunos refatoraram um projeto existente aplicando os princípios de modularização e arquitetura em camadas aprendidos nas aulas anteriores.",
+                objectives: [
+                    "Refatoração de código",
+                    "Aplicação de padrões arquiteturais",
+                    "Organização de projeto em camadas",
+                    "Melhoria de manutenibilidade",
+                ],
+                ambiente: "Laboratório de Informática",
+                ferramentas:
+                    "Projetos legados para refatorar, Ferramentas de análise de código, Git para versionamento",
+                avaliacao:
+                    "Qualidade da refatoração, Aplicação dos padrões, Melhoria na manutenibilidade",
+                color: "#614A5C",
+            },
+            {
+                id: "8-1",
+                title: "Fundamentos de testes unitários com Pytest",
+                block: 8,
+                blockName: "Testes unitários",
+                description:
+                    "Nesta aula, os alunos foram introduzidos aos conceitos de testes unitários, aprendendo a escrever e executar testes automatizados usando o framework Pytest para validar o funcionamento de unidades de código.",
+                objectives: [
+                    "Conceitos de testes unitários",
+                    "Framework Pytest",
+                    "Escrita de testes simples",
+                    "Execução e relatórios de testes",
+                ],
+                ambiente: "Laboratório de Informática",
+                ferramentas:
+                    "Pytest framework, Exemplos de testes, Cobertura de código, Relatórios de teste",
+                avaliacao:
+                    "Criação de testes unitários, Cobertura de código, Qualidade dos testes",
+                color: "#3C2E3E",
+            },
+            {
+                id: "8-2",
+                title: "TDD e boas práticas em testes automatizados",
+                block: 8,
+                blockName: "Testes unitários",
+                description:
+                    "Os estudantes aprenderam a metodologia Test-Driven Development (TDD) e boas práticas para escrita de testes eficazes, incluindo organização, nomenclatura e cobertura de testes.",
+                objectives: [
+                    "Metodologia TDD",
+                    "Boas práticas em testes",
+                    "Organização de testes",
+                    "Cobertura de testes",
+                ],
+                ambiente: "Laboratório de Informática",
+                ferramentas:
+                    "Pytest avançado, Exemplos TDD, Ferramentas de métricas, Casos de estudo",
+                avaliacao:
+                    "Aplicação de TDD, Qualidade dos testes, Organização da suite de testes",
+                color: "#3C2E3E",
+            },
+            {
+                id: "8-3",
+                title: "Implementação de testes em projeto real",
+                block: 8,
+                blockName: "Testes unitários",
+                description:
+                    "Aula prática onde os alunos aplicaram testes unitários em um projeto real, criando uma suite de testes abrangente que garante a qualidade e confiabilidade do software desenvolvido.",
+                objectives: [
+                    "Testes em projeto real",
+                    "Suite de testes abrangente",
+                    "Garantia de qualidade",
+                    "Testes de regressão",
+                ],
+                ambiente: "Laboratório de Informática",
+                ferramentas:
+                    "Projetos existentes, Pytest completo, Ferramentas de CI/CD, Relatórios de qualidade",
+                avaliacao:
+                    "Suite de testes completa, Cobertura adequada, Qualidade do software testado",
+                color: "#3C2E3E",
+            },
+        ];
 
-                    lessonCard.innerHTML = `
-                    <div class="lesson-header" style="background-color: ${
-                        lesson.color
+        // Função para renderizar as aulas
+        function renderLessons(lessons) {
+            const container = document.getElementById("lessonsContainer");
+            container.innerHTML = "";
+
+            lessons.forEach((lesson) => {
+                const lessonCard = document.createElement("div");
+                lessonCard.className = "lesson-card";
+                lessonCard.setAttribute("data-block", lesson.block);
+
+                lessonCard.innerHTML = `
+                    <div class="lesson-header" style="background-color: ${lesson.color
                     }">
                         <span>Bloco ${lesson.block}</span>
-                        <span class="lesson-badge">Aula ${
-                            lesson.id.split("-")[1]
-                        }</span>
+                        <span class="lesson-badge">Aula ${lesson.id.split("-")[1]
+                    }</span>
                     </div>
                     <div class="lesson-content">
                         <h3 class="lesson-title">${lesson.title}</h3>
@@ -697,58 +686,58 @@
                     </div>
                 `;
 
-                    lessonCard.addEventListener("click", () =>
-                        openModal(lesson)
-                    );
-                    container.appendChild(lessonCard);
-                });
-            }
-
-            // Função para abrir o modal com os detalhes da aula
-            function openModal(lesson) {
-                const modal = document.getElementById("lessonModal");
-                const modalTitle = document.getElementById("modalLessonTitle");
-                const modalBlockInfo =
-                    document.getElementById("modalBlockInfo");
-                const modalDescription = document.getElementById(
-                    "modalLessonDescription"
+                lessonCard.addEventListener("click", () =>
+                    openModal(lesson)
                 );
-                const objectivesList = document.getElementById(
-                    "modalObjectivesList"
-                );
-                const modalAmbiente = document.getElementById("modalAmbiente");
-                const modalFerramentas =
-                    document.getElementById("modalFerramentas");
-                const modalAvaliacao =
-                    document.getElementById("modalAvaliacao");
+                container.appendChild(lessonCard);
+            });
+        }
 
-                modalTitle.textContent = lesson.title;
-                modalBlockInfo.innerHTML = `<i class="fas fa-cube"></i> Bloco: ${lesson.blockName}`;
-                modalDescription.textContent = lesson.description;
+        // Função para abrir o modal com os detalhes da aula
+        function openModal(lesson) {
+            const modal = document.getElementById("lessonModal");
+            const modalTitle = document.getElementById("modalLessonTitle");
+            const modalBlockInfo =
+                document.getElementById("modalBlockInfo");
+            const modalDescription = document.getElementById(
+                "modalLessonDescription"
+            );
+            const objectivesList = document.getElementById(
+                "modalObjectivesList"
+            );
+            const modalAmbiente = document.getElementById("modalAmbiente");
+            const modalFerramentas =
+                document.getElementById("modalFerramentas");
+            const modalAvaliacao =
+                document.getElementById("modalAvaliacao");
 
-                // Limpar e preencher a lista de objetivos
-                objectivesList.innerHTML = "";
-                lesson.objectives.forEach((objective) => {
-                    const li = document.createElement("li");
-                    li.textContent = objective;
-                    objectivesList.appendChild(li);
-                });
+            modalTitle.textContent = lesson.title;
+            modalBlockInfo.innerHTML = `<i class="fas fa-cube"></i> Bloco: ${lesson.blockName}`;
+            modalDescription.textContent = lesson.description;
 
-                // Preencher os novos campos
-                modalAmbiente.textContent = lesson.ambiente;
-                modalFerramentas.textContent = lesson.ferramentas;
-                modalAvaliacao.textContent = lesson.avaliacao;
+            // Limpar e preencher a lista de objetivos
+            objectivesList.innerHTML = "";
+            lesson.objectives.forEach((objective) => {
+                const li = document.createElement("li");
+                li.textContent = objective;
+                objectivesList.appendChild(li);
+            });
 
-                setupCopyButton(lesson);
+            // Preencher os novos campos
+            modalAmbiente.textContent = lesson.ambiente;
+            modalFerramentas.textContent = lesson.ferramentas;
+            modalAvaliacao.textContent = lesson.avaliacao;
 
-                modal.style.display = "flex";
-            }
+            setupCopyButton(lesson);
 
-            function setupCopyButton(lesson) {
-                const copyBtn = document.getElementById("copyModalBtn");
+            modal.style.display = "flex";
+        }
 
-                copyBtn.onclick = function () {
-                    const textToCopy = `${lesson.description}
+        function setupCopyButton(lesson) {
+            const copyBtn = document.getElementById("copyModalBtn");
+
+            copyBtn.onclick = function () {
+                const textToCopy = `${lesson.description}
 
 CONHECIMENTOS ABORDADOS:
 ${lesson.objectives.map((obj) => `• ${obj}`).join("\n")}
@@ -758,114 +747,150 @@ FERRAMENTAS UTILIZADAS: ${lesson.ferramentas}
 CRITÉRIOS DE AVALIAÇÃO: ${lesson.avaliacao}
         `.trim();
 
-                    // Copiar para a área de transferência
-                    navigator.clipboard
-                        .writeText(textToCopy)
-                        .then(() => {
-                            // Feedback visual
-                            const originalText = copyBtn.innerHTML;
-                            copyBtn.innerHTML =
-                                '<i class="fas fa-check"></i> Copiado!';
-                            copyBtn.classList.add("copied");
+                // Copiar para a área de transferência
+                navigator.clipboard
+                    .writeText(textToCopy)
+                    .then(() => {
+                        // Feedback visual
+                        const originalText = copyBtn.innerHTML;
+                        copyBtn.innerHTML =
+                            '<i class="fas fa-check"></i> Copiado!';
+                        copyBtn.classList.add("copied");
 
-                            setTimeout(() => {
-                                copyBtn.innerHTML = originalText;
-                                copyBtn.classList.remove("copied");
-                            }, 2000);
-                        })
-                        .catch((err) => {
-                            console.error("Erro ao copiar: ", err);
-                            alert(
-                                "Erro ao copiar o conteúdo. Tente novamente."
-                            );
-                        });
-                };
-            }
-
-            // Filtros e busca
-            function setupFilters() {
-                const filterButtons = document.querySelectorAll(".filter-btn");
-                const searchInput = document.getElementById("searchInput");
-
-                // Filtros por bloco
-                filterButtons.forEach((button) => {
-                    button.addEventListener("click", () => {
-                        const filter = button.getAttribute("data-filter");
-
-                        // Atualizar botão ativo
-                        filterButtons.forEach((btn) =>
-                            btn.classList.remove("active")
+                        setTimeout(() => {
+                            copyBtn.innerHTML = originalText;
+                            copyBtn.classList.remove("copied");
+                        }, 2000);
+                    })
+                    .catch((err) => {
+                        console.error("Erro ao copiar: ", err);
+                        alert(
+                            "Erro ao copiar o conteúdo. Tente novamente."
                         );
-                        button.classList.add("active");
-
-                        // Aplicar filtro
-                        if (filter === "all") {
-                            renderLessons(lessonsData);
-                        } else {
-                            const filteredLessons = lessonsData.filter(
-                                (lesson) => lesson.block === parseInt(filter)
-                            );
-                            renderLessons(filteredLessons);
-                        }
                     });
-                });
+            };
+        }
 
-                // Busca
-                searchInput.addEventListener("input", () => {
-                    const searchTerm = searchInput.value.toLowerCase();
+        function generateFilterButtons() {
+            const filterButtonsContainer = document.getElementById('filterButtons');
 
-                    if (searchTerm.length > 2) {
+            // Extrair blocos únicos dos dados das aulas
+            const uniqueBlocks = [...new Set(lessonsData.map(lesson => lesson.block))];
+
+            // Ordenar os blocos
+            uniqueBlocks.sort((a, b) => a - b);
+
+            // Criar botões para cada bloco único
+            uniqueBlocks.forEach(block => {
+                // Encontrar o nome do bloco (pegando da primeira aula desse bloco)
+                const blockLesson = lessonsData.find(lesson => lesson.block === block);
+                const blockName = blockLesson.blockName;
+
+                // Criar um nome curto para o botão (primeira palavra ou abreviação)
+                let shortName = blockName;
+                if (blockName.length > 15) {
+                    // Pegar apenas a primeira palavra ou criar uma abreviação
+                    const words = blockName.split(' ');
+                    shortName = words.length > 1 ? words[0] : blockName.substring(0, 12) + '...';
+                }
+
+                const button = document.createElement('button');
+                button.className = 'filter-btn';
+                button.setAttribute('data-filter', block);
+                button.textContent = shortName;
+                button.title = blockName; // Tooltip com o nome completo
+
+                filterButtonsContainer.appendChild(button);
+            });
+        }
+
+        // Filtros e busca
+        function setupFilters() {
+            generateFilterButtons();
+
+            const filterButtons = document.querySelectorAll(".filter-btn");
+            const searchInput = document.getElementById("searchInput");
+
+            // Filtros por bloco
+            filterButtons.forEach((button) => {
+                button.addEventListener("click", () => {
+                    const filter = button.getAttribute("data-filter");
+
+                    // Atualizar botão ativo
+                    filterButtons.forEach((btn) =>
+                        btn.classList.remove("active")
+                    );
+                    button.classList.add("active");
+
+                    // Aplicar filtro
+                    if (filter === "all") {
+                        renderLessons(lessonsData);
+                    } else {
                         const filteredLessons = lessonsData.filter(
-                            (lesson) =>
-                                lesson.title
-                                    .toLowerCase()
-                                    .includes(searchTerm) ||
-                                lesson.blockName
-                                    .toLowerCase()
-                                    .includes(searchTerm)
+                            (lesson) => lesson.block === parseInt(filter)
                         );
                         renderLessons(filteredLessons);
-                    } else if (searchTerm.length === 0) {
-                        // Mostrar todas as aulas se a busca estiver vazia
-                        const activeFilter = document
-                            .querySelector(".filter-btn.active")
-                            .getAttribute("data-filter");
-
-                        if (activeFilter === "all") {
-                            renderLessons(lessonsData);
-                        } else {
-                            const filteredLessons = lessonsData.filter(
-                                (lesson) =>
-                                    lesson.block === parseInt(activeFilter)
-                            );
-                            renderLessons(filteredLessons);
-                        }
                     }
                 });
-            }
-
-            // Fechar modal
-            function setupModalClose() {
-                const modal = document.getElementById("lessonModal");
-                const closeButton = document.querySelector(".close-modal");
-
-                closeButton.addEventListener("click", () => {
-                    modal.style.display = "none";
-                });
-
-                window.addEventListener("click", (event) => {
-                    if (event.target === modal) {
-                        modal.style.display = "none";
-                    }
-                });
-            }
-
-            // Inicialização
-            document.addEventListener("DOMContentLoaded", () => {
-                renderLessons(lessonsData);
-                setupFilters();
-                setupModalClose();
             });
-        </script>
-    </body>
+
+            // Busca
+            searchInput.addEventListener("input", () => {
+                const searchTerm = searchInput.value.toLowerCase();
+
+                if (searchTerm.length > 2) {
+                    const filteredLessons = lessonsData.filter(
+                        (lesson) =>
+                            lesson.title
+                                .toLowerCase()
+                                .includes(searchTerm) ||
+                            lesson.blockName
+                                .toLowerCase()
+                                .includes(searchTerm)
+                    );
+                    renderLessons(filteredLessons);
+                } else if (searchTerm.length === 0) {
+                    // Mostrar todas as aulas se a busca estiver vazia
+                    const activeFilter = document
+                        .querySelector(".filter-btn.active")
+                        .getAttribute("data-filter");
+
+                    if (activeFilter === "all") {
+                        renderLessons(lessonsData);
+                    } else {
+                        const filteredLessons = lessonsData.filter(
+                            (lesson) =>
+                                lesson.block === parseInt(activeFilter)
+                        );
+                        renderLessons(filteredLessons);
+                    }
+                }
+            });
+        }
+
+        // Fechar modal
+        function setupModalClose() {
+            const modal = document.getElementById("lessonModal");
+            const closeButton = document.querySelector(".close-modal");
+
+            closeButton.addEventListener("click", () => {
+                modal.style.display = "none";
+            });
+
+            window.addEventListener("click", (event) => {
+                if (event.target === modal) {
+                    modal.style.display = "none";
+                }
+            });
+        }
+
+        // Inicialização
+        document.addEventListener("DOMContentLoaded", () => {
+            renderLessons(lessonsData);
+            setupFilters();
+            setupModalClose();
+        });
+    </script>
+</body>
+
 </html>
